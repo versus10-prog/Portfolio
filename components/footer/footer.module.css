@@ -1,0 +1,23 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: var(--color5-60);
+  font-size: var(--font-size-s);
+  background-color: var(--color2);
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+.footer ul {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+@media screen and (max-width: 530px) {
+  .footer {
+    font-size: var(--font-size-s);
+  }
+}

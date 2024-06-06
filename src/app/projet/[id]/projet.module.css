@@ -1,0 +1,108 @@
+.projet{
+    display: flex;
+    flex-direction: column;
+}
+
+/* description */
+.intro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+.titre{
+    font-size: 40px;
+    
+}
+.nom{
+    font-size: 60px;
+}
+.description{
+    width: 80%;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.image{
+    margin: 20px 0;
+    width: 50%;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* technologie */
+
+.technos{
+    background-color: var(--color2);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.technoImage{
+    width: 120px;
+    height: auto;
+}
+
+.technoNom{
+    font-size: 30px;
+    padding-left: 40px;
+}
+
+.techno{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    width: 300px;
+
+}
+
+/*detail projet*/
+
+.detailProjet{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    
+}
+
+.detail{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.detailContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.detailTitre{
+    color: var(--color3);
+    font-size: 50px;
+    padding: 20px;
+}
+
+.detailImage{
+    width: auto;
+    height: 300px;
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.detailDescription{
+    font-size: 20px;
+    padding: 20px;
+    
+}
+.gauche{
+    background-color: var(--color2-60);
+}

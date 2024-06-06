@@ -1,0 +1,402 @@
+.main {
+  height: fit-content;
+  background-color: var(--color1);
+}
+.presentation {
+  margin-top: 70px;
+  height: calc(100vh);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-image: url("/assets/images/nuage.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.left {
+  width: 40%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.left p:nth-child(1) {
+  line-height: var(--title-line-height);
+  color: var(--color3);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  letter-spacing: var(--title-letter-spacing);
+}
+.left p:nth-child(2) {
+  line-height: var(--title-line-height);
+  color: var(--color4);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing: var(--title-letter-spacing);
+}
+.left p:nth-child(3) {
+  margin-top: 1em;
+  color: var(--color5);
+  font-size: var(--font-size-m);
+  width: 70%;
+  line-height: var(--text-line-height);
+}
+
+.right {
+  position: relative;
+  width: 40%;
+  height: 80%;
+}
+.right .img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
+  animation: fadeInFromTop 1s linear forwards, floating ease 5s infinite;
+}
+.right .design {
+  background-color: var(--color3);
+  height: 100%;
+  position: absolute;
+  top: calc(50% + 10px);
+  left: calc(50% + 10px);
+  transform: translate(-50%, -50%);
+  width: 100%;
+  clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 90%);
+  animation: fadeInFromBottom 1s linear forwards;
+}
+
+@keyframes fadeInFromTop {
+  from {
+    opacity: 0;
+    transform: translate(calc(-50% -50px), -50%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes fadeInFromBottom {
+  from {
+    opacity: 0;
+    transform: translate(calc(-50% + 50px), -50%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.cv {
+  font-size: var(--font-size-m);
+  font-weight: 500;
+  background: none;
+  outline: none;
+  border: 2px solid var(--color3);
+  color: var(--color3);
+  padding: 2% 1%;
+  margin-top: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all .3s;
+  display: flex;
+  align-items: center;
+}
+.cv svg{
+  height: calc(var(--font-size-m) * 1.4);
+  margin-left: 10px;
+}
+.cv:hover{
+  background-color: var(--color3);
+  color: white;
+}
+
+
+@keyframes floating {
+  0% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  25% {
+    transform: translate(-48%, -46%) rotate(360deg);
+  }
+  50% {
+    transform: translate(-47%, -48%) rotate(360deg);
+  }
+  75% {
+    transform: translate(-50%, -46%) rotate(360deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* techno */
+
+.techno {
+  background-color: var(--color2);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  padding: 2% 7%;
+  min-height: 100vh;
+}
+.techno h2 {
+  font-size: var(--font-size-l);
+  color: var(--color3);
+  font-weight: 500;
+  letter-spacing: var(--text-letter-spacing);
+  line-height: var(--text-line-height);
+}
+.skills_container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.skills_container h3 {
+  font-size: var(--font-size-m);
+  color: var(--color5);
+  font-weight: 600;
+  letter-spacing: var(--text-letter-spacing);
+  line-height: var(--text-line-height);
+}
+.cat_container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.cat_item {
+  position: relative;
+  cursor: pointer;
+  width: calc(100% / 9);
+  margin: 0 calc(100% / (9 * 8));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.cat_item::before {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  width: 120%;
+  height: 30%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color3);
+  opacity: .2;
+  clip-path: polygon(0 20%, 100% 0, 100% 80%, 0% 100%);
+  transition: all .3s;
+  
+}
+
+.cat_item img {
+  margin: 10px;
+  width: 100%;
+  transition: 0.3s all;
+}
+
+.cat_item p {
+  margin: 5px;
+  font-size: var(--font-size-m);
+  transition: 0.3s all;
+}
+.cat_item:hover p {
+  filter: drop-shadow(rgba(0, 0, 0, 0.116) 0px 3px 8px);
+}
+.cat_item:hover img {
+  filter: drop-shadow(rgba(0, 0, 0, 0.089) 0px 3px 8px);
+}
+
+.cat_item:hover::before{
+  height: 80%;
+}
+
+.skelet {
+  margin: 15px 0;
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-color: #000000;
+  border-radius: 20px;
+  animation: skeletton 1s ease-in-out infinite;
+}
+.skeletp {
+  margin: 5px 0;
+  width: 100%;
+  aspect-ratio: 4/1;
+  background-color: #000000;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  animation: skeletton 1s ease-in-out infinite;
+}
+
+@keyframes skeletton {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.container {
+  background-image: url("/assets/images/nuage-hobbie.png");
+  background-size: cover;
+  background-position: center;
+  padding: 3% 7%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 0.5fr 1fr 0.5fr 1fr 1fr;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "about about about"
+    "img1 img1 hobbie1"
+    "img1 img1 img2"
+    "hobbie2 hobbie2 img2"
+    "img4 img4 img3"
+    "img4 img4 img3";
+  height: 150vh;
+  gap: 30px;
+}
+
+.about {
+  grid-area: about;
+}
+.about p {
+  width: 60%;
+}
+
+.img1 {
+  grid-area: img1;
+  background-image: url("/assets/images/computer.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hobbie2 {
+  grid-area: hobbie2;
+}
+.hobbie2 p {
+  width: 60%;
+}
+
+.hobbie1 {
+  grid-area: hobbie1;
+}
+
+.img2 {
+  grid-area: img2;
+  background-image: url("/assets/images/computer2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.img3 {
+  grid-area: img3;
+  background-image: url("/assets/images/boxing.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.img4 {
+  grid-area: img4;
+  background-image: url("/assets/images/wrestling.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.ab_me_img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.ab_me_hobbie {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6%;
+  text-align: center;
+}
+
+.ab_me_hobbie h3 {
+  font-size: var(--font-size-l);
+  color: var(--color5);
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+}
+.ab_me_hobbie h3 span {
+  color: var(--color3);
+}
+
+.ab_me_hobbie p {
+  font-size: calc(var(--font-size-m) * .8);
+}
+
+@media screen and (max-width: 930px) {
+  .presentation {
+    flex-direction: column;
+  }
+  .left,
+  .right {
+    width: 80%;
+  }
+  .left {
+    align-items: center;
+    text-align: center;
+  }
+
+  .techno {
+    margin-top: 50px;
+  }
+  .cat_item {
+    position: relative;
+    width: calc(100% / 7);
+    margin: 0 calc(100% / (7 * 5));
+  }
+ 
+}
+@media screen and (max-width: 530px) {
+  .cat_item {
+    width: calc(100% / 5);
+    margin: 0 calc(100% / (5 * 3));
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 0.5fr 1fr 0.5fr 0.5fr 1fr 1fr 0.5fr 1fr 1fr;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "about about about"
+      "img1 img1 img1"
+      "img1 img1 img1"
+      "img1 img1 img1"
+      "hobbie2 hobbie2 hobbie2"
+      "img4 img4 img3"
+      "img4 img4 img3"
+      "hobbie1 hobbie1 hobbie1"
+      "img2 img2 img2"
+      "img2 img2 img2";
+    gap: 10px;
+  }
+  .ab_me_hobbie p {
+    width: 100%;
+  }
+  .ab_me_hobbie h3 {
+    width: 100%;
+  }
+}

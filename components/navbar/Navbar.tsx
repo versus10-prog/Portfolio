@@ -1,0 +1,35 @@
+import React from "react";
+import styles from "./navbar.module.css";
+import Link from "next/link";
+import LightSwitch from "../LightSwitch/lightSwitch";
+
+const Navbar = () => {
+ 
+
+  return (
+    <nav className={styles.navbar}>
+      <Link href={"/"} className={styles.logo}>
+        <img src="/assets/images/logo-violet-magenta-64x64.png" alt="valentin logo" />
+      </Link>
+      <Link href={"/"} className={styles.titre}>
+        <p>Me Connaitre</p>
+      </Link>
+      <Link href={"/parcours"} className={styles.titre}>
+       <p>Mon Parcours</p>
+      </Link>
+      <Link href={"/projets"} className={styles.titre}>
+        <p>Mes Projets</p>
+      </Link>
+      <Link href={"/"} className={styles.titre}>
+        <p>Me Contacter</p>
+      </Link>
+      <div className={styles.switch}>
+        <LightSwitch />
+      </div>
+
+
+    </nav>
+  );
+};
+
+export default Navbar;

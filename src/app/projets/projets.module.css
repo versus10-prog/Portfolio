@@ -1,0 +1,66 @@
+.projet{
+    background-color: var(--color2-60);  
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+}
+
+.imageContent{
+    width: 20%;
+    padding: 7px;
+}
+
+.image{
+    width: 100%;
+    height: auto;
+
+}
+
+.centerContent{
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.technoContent{
+    width: 20%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nom{
+    font-size: 60px;
+}
+
+.titre{
+    font-size: 40px;
+}
+
+.presentation{
+    font-size: 20px;
+}
+
+.technoImage{
+    width: 120px;
+    height: auto;
+}
+
+.technoNom{
+    font-size: 30px;
+}
+
+.techno{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}

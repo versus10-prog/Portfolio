@@ -1,0 +1,24 @@
+.navbar{
+  background-color: var(--color2);
+  display: flex ;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 75px;
+}
+
+.logo{
+  height: 100% ;
+  display: flex;
+  align-items: center;
+}
+.titre{
+  color: var(--color1);
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-family: serif;
+}
+.switch{
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,78 @@
+::-webkit-scrollbar {
+  width: 7px;
+  height: 3px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color1);
+}
+::-webkit-scrollbar-thumb {
+  background: #00000030;
+  border-radius: 10px;
+}
+
+:root {
+  --color1: #ffffff;
+  --color2: #E980FC;
+  --color2-60: #e980fc60;
+  --color3: #C65BDC;
+  --color4: #802392;
+  --color5: #04030F;
+
+
+  --font-size-xl: clamp(4.5rem, 4vw, 8rem);
+  --font-size-l: clamp(2.4rem, 3vw, 6rem);
+  --font-size-m: clamp(1.6rem, 1.2vw, 3rem);
+  --font-size-s: clamp(1.4rem, .8vw, 1.6rem);
+
+  --title-letter-spacing: -0.03em;
+  --text-letter-spacing: -0.005em;
+
+  --title-line-height: calc(1em * 1.1);
+  --text-line-height: calc(1em * 1.5);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+html {
+  font-size: 10px;
+}
+
+html,
+body {
+  background: var(--color1);
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
+  color: rgb(var(--color5));
+}
+
+body {
+  color: rgb(var(--color5));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
