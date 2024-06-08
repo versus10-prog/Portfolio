@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../../../prisma/prisma";
 import { Accueil } from "../../../../types/accueil/Accueil";
-import { Activite } from "../../../../types/accueil/Activite";
+import { Activite } from "../../../../types/activite/Activite";
 
 export default async function handler(
   req: NextApiRequest,

@@ -1,8 +1,8 @@
 export type ParcoursType = {
     parcours_id: number;
     nom: string;
-    date_debut: string;
-    date_fin: string;
+    date_debut: Date;
+    date_fin: Date;
     description: string;
     type: string;
     svgLien: string;

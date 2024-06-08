@@ -38,8 +38,8 @@ export default async function handler(
     }
   } else if (req.method === "GET") {
     const techno = await prisma.technologie.findMany();
-    if(!techno){
-        res.status(400).json({ error: "Error getting technologie, D-001" });
+    if (!techno) {
+      res.status(400).json({ error: "Error getting technologie, D-001" });
     }
     res.status(200).json(techno);
   } else if (req.method === "DELETE") {
@@ -49,46 +49,44 @@ export default async function handler(
       return;
     }
     const images = await prisma.image.findMany({
-        select: {
-          image_id: true,
-          nom: true,
-        },
-        where: {
-          technologie: {
-            some: {
-              techno_id: techno_id,
-            },
+      select: {
+        image_id: true,
+        nom: true,
+      },
+      where: {
+        technologie: {
+          some: {
+            techno_id: techno_id,
           },
         },
-      });
+      },
+    });
 
-      const deletedTechnoInProjet = await prisma.technoInProjet.deleteMany({
+    const deletedTechnoInProjet = await prisma.technoInProjet.deleteMany({
+      where: {
+        techno_id: techno_id,
+      },
+    });
+
+    if (deletedTechnoInProjet) {
+      const deleted = await prisma.technologie.delete({
         where: {
           techno_id: techno_id,
         },
       });
 
-      if(deletedTechnoInProjet){
-        const deleted = await prisma.technologie.delete({
-            where: {
-              techno_id: techno_id,
-            },
-          });
-    
-          if (deleted) {
-            if (suppressionImages(images)) {
-              res.status(200).json({ message: "the poster has been deleted" });
-            } else {
-              res.status(400).json({ error: "Error during deleting. P-002" });
-            }
-          } else {
-            res.status(400).json({ error: "Error during deleting. A-002" });
-          }
+      if (deleted) {
+        if (suppressionImages(images)) {
+          res.status(200).json({ message: "the poster has been deleted" });
         } else {
-          res.status(400).json({ error: "Error during deleting. A-002" });
+          res.status(400).json({ error: "Error during deleting. P-002" });
         }
-  
+      } else {
+        res.status(400).json({ error: "Error during deleting. A-002" });
+      }
+    } else {
+      res.status(400).json({ error: "Error during deleting. A-002" });
+    }
   } else if (req.method === "POST") {
-
   }
 }

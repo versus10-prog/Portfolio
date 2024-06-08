@@ -1,4 +1,4 @@
-import { Activite } from "./Activite"
+import { Activite } from "../activite/Activite"
 
 export type Accueil = {
     accueil_id: number,
