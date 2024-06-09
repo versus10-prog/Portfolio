@@ -1,7 +1,7 @@
 import { Techno, Technologie } from "../technologie/Technologie";
 import { DetailProjet } from "./DetailProjet";
 
-export type Projets = {
+export type ProjetsType = {
     projet_id:   number;
     nom: string;
     presentation: string;

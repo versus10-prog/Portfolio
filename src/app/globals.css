@@ -10,13 +10,18 @@
   border-radius: 10px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+
 :root {
   --color1: #ffffff;
   --color2: #E980FC;
   --color2-60: #e980fc60;
+  --color2-40: #e980fc40 ;
   --color3: #C65BDC;
   --color4: #802392;
   --color5: #04030F;
+  --color6: #D9D9D9;
 
 
   --font-size-xl: clamp(4.5rem, 4vw, 8rem);

@@ -12,29 +12,29 @@ export default async function handler(
     const id: number = parseInt(req.query.detail_id as string);
 
     const detailProjet = await prisma.detailProjet.findUnique({
-        select:{
-            detail_projet_id: true,
-            titre: true,
-            description: true,
-            image: {
-                select:{
-                    nom: true
-                }
-            }
+      select: {
+        detail_projet_id: true,
+        titre: true,
+        description: true,
+        image: {
+          select: {
+            nom: true,
+          },
         },
-        where:{
-            detail_projet_id : id
-        }
+      },
+      where: {
+        detail_projet_id: id,
+      },
     });
-    
-    if(detailProjet){
-        const detail: DetailProjet = {
-            detail_projet_id: detailProjet.detail_projet_id,
-            titre: detailProjet.titre,
-            description: detailProjet.description,
-            imageLien: `${process.env.PUBLIC_DOMAINE_BUCKET_URL}${detailProjet.image.nom}`
-        }
-        res.status(200).json(detail);
+
+    if (detailProjet) {
+      const detail: DetailProjet = {
+        detail_projet_id: detailProjet.detail_projet_id,
+        titre: detailProjet.titre,
+        description: detailProjet.description,
+        imageLien: `${process.env.PUBLIC_DOMAINE_BUCKET_URL}${detailProjet.image.nom}`,
+      };
+      res.status(200).json(detail);
     } else {
       res.status(400).json({ message: "This detail projet does not exist" });
     }
@@ -52,24 +52,31 @@ export default async function handler(
       return;
     }
     const images = await prisma.image.findMany({
-        select: {
-          image_id: true,
-          nom: true,
-        },
-        where: {
-          detail_projet: {
-            some: {
-              detail_projet_id: detail_id,
-            },
+      select: {
+        image_id: true,
+        nom: true,
+      },
+      where: {
+        detail_projet: {
+          some: {
+            detail_projet_id: detail_id,
           },
         },
-      });
+      },
+    });
 
+    const deletedDetailInProjet = await prisma.detailInProjet.deleteMany({
+      where: {
+        detail_projet_id: detail_id,
+      },
+    });
+
+    if (deletedDetailInProjet) {
       const deleted = await prisma.detailProjet.delete({
-        where:{
-            detail_projet_id: detail_id
-        }
-      })
+        where: {
+          detail_projet_id: detail_id,
+        },
+      });
 
       if (deleted) {
         if (suppressionImages(images)) {
@@ -80,6 +87,9 @@ export default async function handler(
       } else {
         res.status(400).json({ error: "Error during deleting. A-002" });
       }
+    } else {
+      res.status(400).json({ error: "Error during deleting. A-002" });
+    }
   } else if (req.method === "POST") {
   }
 }
