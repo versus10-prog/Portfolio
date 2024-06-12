@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../../../prisma/prisma";
-import { Accueil } from "../../../../types/accueil/Accueil";
+import { AccueilType } from "../../../../types/accueil/Accueil";
 import { Activite } from "../../../../types/activite/Activite";
 
 export default async function handler(
@@ -46,9 +46,10 @@ export default async function handler(
           description: thisActivite.activite.description,
           imageLien: `${process.env.PUBLIC_DOMAINE_BUCKET_URL}${thisActivite.activite.image.nom}`,
         };
+        acitivite.push(acti)
       });
 
-      const accueilResult: Accueil = {
+      const accueilResult: AccueilType = {
         accueil_id: accueil.accueil_id,
         description: accueil.description,
         imageLien: `${process.env.PUBLIC_DOMAINE_BUCKET_URL}${accueil.image.nom}`,

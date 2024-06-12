@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./techno_item.module.css";
-import { ProjetsType } from "../../types/projets/Projets";
 import { Technologie } from "../../types/technologie/Technologie";
 
 const TechnoItem = ({ techno }: { techno: Technologie }) => {

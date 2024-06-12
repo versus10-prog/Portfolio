@@ -1,0 +1,45 @@
+.hexagon {
+    position: relative;
+    width: 25%;
+    height: auto;
+    overflow: hidden; /* Masquer tout contenu qui dépasse de l'hexagone */
+  }
+  
+  .svg {
+    width: 100%;
+    height: auto;
+    transition: filter 0.3s ease; /* Transition pour les effets de filtre au survol */
+  }
+  
+  .overlaySvg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Permet aux événements de souris de passer à travers le SVG */
+    opacity: 0; /* Défaut à invisible */
+    transition: opacity 0.3s ease; /* Transition pour l'opacité au survol */
+    overflow: hidden; /* Masquer tout contenu qui dépasse du SVG */
+  }
+  
+  .overlaySvg path {
+    transition: fill-opacity 0.3s ease; /* Transition pour l'opacité de remplissage au survol */
+  }
+  
+  .overlaySvg text {
+    transition: opacity 0.3s ease; /* Transition pour l'opacité du texte au survol */
+  }
+  
+  .hexagon:hover .overlaySvg {
+    opacity: 1; /* Rendre le SVG visible au survol */
+  }
+  
+  .hexagon:hover .overlaySvg path {
+    fill-opacity: 0.8; /* Rendre le remplissage du path visible au survol */
+  }
+  
+  .hexagon:hover .overlaySvg text {
+    opacity: 1; /* Rendre le texte visible au survol */
+  }
+  

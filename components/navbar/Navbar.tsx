@@ -11,7 +11,7 @@ const Navbar = () => {
       <Link href={"/"} className={styles.logo}>
         <img src="/assets/images/logo-violet-magenta-64x64.png" alt="valentin logo" />
       </Link>
-      <Link href={"/"} className={styles.titre}>
+      <Link href={"/accueil"} className={styles.titre}>
         <p>Me Connaitre</p>
       </Link>
       <Link href={"/parcours"} className={styles.titre}>
