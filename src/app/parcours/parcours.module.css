@@ -2,94 +2,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    padding-bottom: 50px;
+}
+.scolaire,
+.professionnel{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .titre{
     padding-top: 50px;
     color: var(--color4);
     font-size: 50px;
+    padding-bottom: 50px;
 }
 
-.content{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-}
-.block{
-    padding: 0 5%;
-    display: flex;
-    flex-direction: row;
-
-    height: 300px;
-}
-
-.info{
-    padding: 0 20px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-}
-
-.ligne {
-    position: relative;
-    height: auto;
-    width: 10px;
-    background-color: var(--color4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.firstLine .ligne {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), var(--color4) 50%);
-}
-.firstLinePro .ligne{
-    background: linear-gradient(to bottom, var(--color4)50%, rgba(0, 0, 0, 0));
-}
-
-.svgIconContainer {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 70px; 
-    height: 70px; 
-    background-color: var(--color4);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.svgIcon {
-    width: 50px; 
-    height: 50px; 
-}
-
-.contenue{
-    display: flex;
-    flex-direction: column;
-    margin-left: 50px;
-}
-
-.nom{
-    font-size: 40px;
-}
-
-.date{
-    font-size: 20px;
-}
-.description{
-    font-size: 20px;
-}
-
-.divDescription{
-    width: 70%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
 
 .tiret, 
 .tiretPro{
@@ -142,5 +73,10 @@
     height: 10px;
     border-radius: 50%; 
 }
-
+.titreDiv,
+.dateDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
 

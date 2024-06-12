@@ -32,7 +32,7 @@ export default function Projets() {
           <ProjetItem
             key={projetItem.projet_id}
             projet={projetItem}
-            inverse={index % 2 === 1}
+            inverse={index % 2 === 0}
           />
         </Link>
       ))}

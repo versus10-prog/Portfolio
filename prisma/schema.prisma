@@ -36,10 +36,10 @@ model Technologie {
  model Projet {
    projet_id    Int   @id @default(autoincrement())
    nom          String  
+     titre        String 
    lien         String? 
    presentation String   
    description  String  
-   titre        String  
    image_id     Int
 
    image Image @relation(fields: [image_id], references: [image_id])
@@ -64,6 +64,7 @@ model Technologie {
  model Parcours {
    parcours_id  Int   @id @default(autoincrement())
    nom          String  
+  titre        String  
    date_debut   DateTime
    date_fin     DateTime
    description  String  

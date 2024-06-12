@@ -14,6 +14,7 @@ export default async function handler(
       select: {
         parcours_id: true,
         nom: true,
+        titre: true,
         date_debut: true,
         date_fin: true,
         description: true,
@@ -32,6 +33,7 @@ export default async function handler(
       select: {
         parcours_id: true,
         nom: true,
+        titre: true,
         date_debut: true,
         date_fin: true,
         description: true,
@@ -54,8 +56,9 @@ export default async function handler(
       const parcours: ParcoursType = {
         parcours_id: thisScolaire.parcours_id,
         nom: thisScolaire.nom,
-        date_debut: thisScolaire.date_debut.toDateString(),
-        date_fin: thisScolaire.date_fin.toDateString(),
+        titre: thisScolaire.titre,
+        date_debut: thisScolaire.date_debut,
+        date_fin: thisScolaire.date_fin,
         type: thisScolaire.type,
         description: thisScolaire.description,
         svgLien: `${process.env.PUBLIC_DOMAINE_BUCKET_URL}${thisScolaire.svg.nom}`,
@@ -67,8 +70,9 @@ export default async function handler(
       const parcours: ParcoursType = {
         parcours_id: thisProfessionnel.parcours_id,
         nom: thisProfessionnel.nom,
-        date_debut: thisProfessionnel.date_debut.toDateString(),
-        date_fin: thisProfessionnel.date_fin.toDateString(),
+        titre: thisProfessionnel.titre,
+        date_debut: thisProfessionnel.date_debut,
+        date_fin: thisProfessionnel.date_fin,
         type: thisProfessionnel.type,
         description: thisProfessionnel.description,
         svgLien: `${process.env.PUBLIC_DOMAINE_BUCKET_URL}${thisProfessionnel.svg.nom}`,

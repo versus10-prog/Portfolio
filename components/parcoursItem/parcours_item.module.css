@@ -1,0 +1,119 @@
+
+.titre{
+    font-size: 30px;
+    padding-left: 20px;
+
+}
+
+.titreDiv{
+    display: flex;
+    
+    align-items: baseline;
+    flex-direction: row;
+    
+}
+
+.compense{
+
+    width: calc(50% - 5px);
+}
+
+.block{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 300px;
+    width: 100%;
+}
+
+.info{
+    
+    padding-top: 45px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    width: calc(50% - 5px);
+}
+
+.info.inverse{
+    padding: 0;
+    justify-content: right;
+    padding-top: 45px;
+}
+
+.ligne {
+    position: relative;
+    height: auto;
+    width: 10px;
+    background-color: var(--color4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.firstLine .ligne {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), var(--color4) 50%);
+}
+.lastLine .ligne{
+    background: linear-gradient(to bottom, var(--color4)45%, rgba(0, 0, 0, 0));
+}
+
+.svgIconContainer {
+    position: relative;
+    width: 70px; 
+    height: 70px; 
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.svgIcon {
+    position: absolute;
+    width: 60px; 
+    height: 60px; 
+    z-index: 1;
+    padding-bottom: 5px;
+}
+.svg{
+    position: absolute;
+    width: auto; 
+    height: 80px;
+    margin-left: 190px; 
+}
+
+.svg.inverse{
+    transform: scaleX(-1);
+    margin-left: 0;
+    margin-right: 190px;
+}
+
+.inverseBlock {
+    flex-direction: row-reverse;
+  }
+
+
+.contenue{
+    display: flex;
+    flex-direction: column;
+    margin-left: 300px;
+
+}
+.contenue.inverse{
+    margin:0;
+    margin-right: 300px;
+}
+
+.nom{
+    font-size: 60px;
+}
+
+.date{
+    font-size: 20px;
+}
+.description{
+    font-size: 20px;
+}
+
+
+

@@ -1,6 +1,7 @@
 export type ParcoursType = {
     parcours_id: number;
     nom: string;
+    titre: string;
     date_debut: Date;
     date_fin: Date;
     description: string;
