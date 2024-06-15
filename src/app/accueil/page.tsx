@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from "react";
 import { AccueilType } from "../../../types/accueil/Accueil";
-import styles from "./accueil.module.css";
+import styles from "accueil.module.css";
 import axios from "axios";
 import ActiviteItem from "../../../components/activiteItem/ActiviteItem";
 import { catCompetence } from "../../../types/competences/Competence";
