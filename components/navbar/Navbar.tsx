@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./navbar.module.css";
 import Link from "next/link";
-import LightSwitch from "../LightSwitch/lightSwitch";
 
 const Navbar = () => {
  

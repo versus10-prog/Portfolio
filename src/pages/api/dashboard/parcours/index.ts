@@ -18,6 +18,7 @@ export default async function handler(
         date_fin: true,
         description: true,
         type: true,
+        titre: true,
         svg: {
           select: {
             nom: true,
@@ -37,6 +38,7 @@ export default async function handler(
         date_fin: parcours.date_fin,
         description: parcours.description,
         type: parcours.type,
+        titre: parcours.titre,
         svgLien: `${process.env.PUBLIC_DOMAINE_BUCKET_URL}${parcours.svg.nom}`,
       };
       res.status(200).json(parcoursReturn);
@@ -71,20 +73,20 @@ export default async function handler(
     });
 
     const deleted = await prisma.parcours.delete({
-        where:{
-            parcours_id: parcours_id
-        }
+      where: {
+        parcours_id: parcours_id
+      }
     })
 
     if (deleted) {
-        if (suppressionImages(images)) {
-          res.status(200).json({ message: "the poster has been deleted" });
-        } else {
-          res.status(400).json({ error: "Error during deleting. P-002" });
-        }
+      if (suppressionImages(images)) {
+        res.status(200).json({ message: "the poster has been deleted" });
       } else {
-        res.status(400).json({ error: "Error during deleting. A-002" });
+        res.status(400).json({ error: "Error during deleting. P-002" });
       }
+    } else {
+      res.status(400).json({ error: "Error during deleting. A-002" });
+    }
   } else if (req.method === "POST") {
   }
 }
