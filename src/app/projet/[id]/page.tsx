@@ -7,6 +7,7 @@ import { CompleteProjet } from "../../../../types/projets/Projets";
 import axios from "axios";
 import TechnoItem from "../../../../components/technoItem/TechnoItem";
 import DetailItem from "../../../../components/detailItem/DetailItem";
+import Loading from "../../../../components/Loading/Loading";
 
 type paramType = {
   id?: string;
@@ -16,6 +17,7 @@ export default function Projet() {
   const router = useRouter();
   const param: paramType | null = useParams();
   const [projet, setProjets] = useState<CompleteProjet>();
+  const [loading, setLoading] = useState(true);
 
 
   useEffect(() => {
@@ -24,6 +26,7 @@ export default function Projet() {
       .then((response) => {
         console.log(response);
         setProjets(response.data);
+        setLoading(false)
       })
       .catch((err) => {
         console.error(err);
@@ -31,6 +34,12 @@ export default function Projet() {
   }, []);
 
   return (
+    <div>
+      {loading ? (
+      <Loading/>
+    ):(
+      false
+    )}
     <div className={styles.projet}>
       <div className={styles.infos}>
         <div className={styles.tete}>
@@ -61,6 +70,8 @@ export default function Projet() {
         ))}
       </div>
     </div>
+    </div>
+    
   );
 
 }

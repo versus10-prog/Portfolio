@@ -78,7 +78,90 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 0 50px;
+    padding: 50px 50px;
     
 }
 
+.competences{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color2-60);
+    border-radius: 50px;
+    width: 100%;
+    height: fit-content;
+    padding: 20px 30px;
+    margin-top: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.detailCompetence{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.web,
+.appli,
+.bd{
+    flex: 1;
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.web,
+.appli{
+    border-right: 1px dashed gray;
+}
+
+.svg{
+    width: 80px;
+    height: auto;
+}
+
+.divtitre{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+
+.cmpTitre{
+    font-size: 40px;
+    color: var(--color4);
+    width: 100%;
+    text-align: center;
+}
+
+/* .cmpTitre:nth-of-type(1),
+.cmpTitre:nth-of-type(2) {
+    border-right: 1px dashed gray;
+} */
+
+.objet{
+    display: flex;
+    height: fit-content;
+    justify-content: center;
+    width: calc(50% - 10px);
+    max-width: calc(50% - 10px);
+    padding: 15px;
+
+}
+
+.divObjet{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color2);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.nomCompetence{
+    font-size: 20px;
+    color: var(--color4);
+}

@@ -7,19 +7,18 @@ const Footer = () => {
         <div className={styles.footer}>
             <ul>
                 <li>
-                    <Link target='_blank' href={"https://www.linkedin.com/in/thomas-biabiany-902950251/"}>LinkedIn</Link>
+                    <Link target='_blank' href={"https://www.linkedin.com/in/valentin-sonney-554a72250/"}>LinkedIn</Link>
                 </li>
                 <li>
-                    <Link target='_blank' href={"https://github.com/claquetteuuuh"}>Github</Link>
+                    <Link target='_blank' href={"https://github.com/versus10-prog"}>Github</Link>
                 </li>
                 <li>
-                    <Link target='_blank' href={"https://tryhackme.com/p/Claquetteuuuh"}>TryHackMe</Link>
-                </li>
-                <li>
-                    <Link target='_blank' href={"mailto:th.biabiany@protonmail.com"}>Email</Link>
+                    <Link target='_blank' href={"mailto:valentin.sonney@gmail.com"}>Email</Link>
                 </li>
             </ul>
-            <p>&copy; 2024 Claquetteuuu<Link href={"/api/auth/signin"}>H</Link></p>
+            <p>&copy; 2024 Valentin Sonne
+            {/* <Link href={"/api/auth/signin"}>y</Link> */}
+            </p>
         </div>
     );
 };

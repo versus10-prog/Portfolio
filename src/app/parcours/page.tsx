@@ -6,13 +6,14 @@ import styles from "./parcours.module.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ParcoursItem from "../../../components/parcoursItem/ParcoursItem";
+import Loading from "../../../components/Loading/Loading";
 
 export default function Parcours() {
 
 
   const [parcoursScolaire, setParcoursScloaire] = useState<ParcoursType[]>([]);
   const [parcoursPro, setParcoursPro] = useState<ParcoursType[]>([]);
-
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -21,14 +22,24 @@ export default function Parcours() {
         console.log(response);
         setParcoursScloaire(response.data.scolaire);
         setParcoursPro(response.data.professionnel)
+        if (response.data.professionnel.length !== 0 && response.data.scolaire.length !== 0){
+          setLoading(false)
+        }
       })
       .catch((err) => {
         console.error(err);
       });
   }, []);
 
+
   return (
-    <div className={styles.parcours}>
+    <div>
+      {loading ? (
+      <Loading/>
+    ):(
+      false
+    )}
+     <div className={styles.parcours}>
       <div className={styles.scolaire}>
         <p className={styles.titre}>Mes Etudes</p>
 
@@ -75,5 +86,7 @@ export default function Parcours() {
 
       </div>
     </div>
+    </div>
+   
   );
 }

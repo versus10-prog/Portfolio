@@ -21,7 +21,7 @@ const Navbar = () => {
         <p>Mes Projets</p>
       </Link>
       <div className={styles.switch}>
-        <LightSwitch />
+        <img src="/assets/images/logo-violet-magenta-64x64.png" alt="valentin logo" />
       </div>
 
 

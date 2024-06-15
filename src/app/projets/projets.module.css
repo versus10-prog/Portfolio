@@ -1,11 +1,11 @@
-/* .projet{
+.projet{
     background-color: var(--color2-60);  
     width: 100%;
     height: auto;
     margin-top: 10px;
     display: flex;
     flex-direction: row;
-    //justify-content: space-between;
+    justify-content: space-between;
 }
 
 .imageContent{
@@ -63,4 +63,4 @@
     align-items: center;
     justify-content: space-around;
 
-} */
+}

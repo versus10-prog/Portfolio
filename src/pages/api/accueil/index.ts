@@ -8,7 +8,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === "GET") {
-    const accueil = await prisma.accueil.findMany({
+    const accueil = await prisma.accueil.findFirst({
       select: {
         accueil_id: true,
         description: true,
@@ -33,13 +33,14 @@ export default async function handler(
             },
           },
         },
-      },
+      }
     });
 
-    if (accueil[0]) {
+    console.log(accueil)
+    if (accueil) {
       const acitivite: Activite[] = [];
 
-      accueil[0]?.activite_in_accueil.forEach((thisActivite) => {
+      accueil?.activite_in_accueil.forEach((thisActivite) => {
         const acti: Activite = {
           activite_id: thisActivite.activite.activite_id,
           titre: thisActivite.activite.titre,
@@ -50,9 +51,9 @@ export default async function handler(
       });
 
       const accueilResult: AccueilType = {
-        accueil_id: accueil[0].accueil_id,
-        description: accueil[0].description,
-        imageLien: `${process.env.PUBLIC_DOMAINE_BUCKET_URL}${accueil[0].image.nom}`,
+        accueil_id: accueil.accueil_id,
+        description: accueil.description,
+        imageLien: `${process.env.PUBLIC_DOMAINE_BUCKET_URL}${accueil.image.nom}`,
         activite: acitivite,
       };
       res.status(200).json(accueilResult);

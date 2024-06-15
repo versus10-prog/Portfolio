@@ -1,139 +1,155 @@
- //prisma/schema.prisma
-
+//prisma/schema.prisma
 
 datasource db {
-  provider = "postgres"
-  url      = env("DATABASE_URL")
+  provider     = "postgres"
+  url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
+
 generator client {
   provider = "prisma-client-js"
 }
 
 model Technologie {
-  techno_id   Int   @id @default(autoincrement())
-  nom         String   @unique
-  description String  
+  techno_id   Int    @id @default(autoincrement())
+  nom         String @unique
+  description String
   image_id    Int
-  
-   image Image @relation(fields: [image_id], references: [image_id]) 
-   techno_in_projet TechnoInProjet[]
 
-   @@index([image_id])
+  image            Image            @relation(fields: [image_id], references: [image_id])
+  techno_in_projet TechnoInProjet[]
+
+  @@index([image_id])
 }
 
- model TechnoInProjet {
-   techno_id Int
-   projet_id Int
+model TechnoInProjet {
+  techno_id Int
+  projet_id Int
 
-   technologie Technologie @relation(fields: [techno_id], references: [techno_id])
-   projet      Projet      @relation(fields: [projet_id], references: [projet_id])
-  
-   @@id([techno_id, projet_id])
-   @@index([projet_id])
- }
+  technologie Technologie @relation(fields: [techno_id], references: [techno_id])
+  projet      Projet      @relation(fields: [projet_id], references: [projet_id])
 
- model Projet {
-   projet_id    Int   @id @default(autoincrement())
-   nom          String  
-     titre        String 
-   lien         String? 
-   presentation String   
-   description  String  
-   image_id     Int
+  @@id([techno_id, projet_id])
+  @@index([projet_id])
+}
 
-   image Image @relation(fields: [image_id], references: [image_id])
-   techno_in_projet TechnoInProjet[]
-   detail_in_projet DetailInProjet[]
+model Projet {
+  projet_id    Int     @id @default(autoincrement())
+  nom          String
+  titre        String
+  lien         String?
+  presentation String
+  description  String
+  image_id     Int
 
-   @@index([image_id])
- }
+  image            Image            @relation(fields: [image_id], references: [image_id])
+  techno_in_projet TechnoInProjet[]
+  detail_in_projet DetailInProjet[]
 
- model Image {
-   image_id Int   @id @default(autoincrement())
-   nom String 
+  @@index([image_id])
+}
 
-   technologie       Technologie[]
-   projet            Projet[]
-   activite Activite[]
-   accueil           Accueil[]
-   detail_projet     DetailProjet[]
-   parcours          Parcours[]
- }
+model Image {
+  image_id Int    @id @default(autoincrement())
+  nom      String
 
- model Parcours {
-   parcours_id  Int   @id @default(autoincrement())
-   nom          String  
-  titre        String  
-   date_debut   DateTime
-   date_fin     DateTime
-   description  String  
-   type         TypeParcours
-   svg_id       Int
+  technologie   Technologie[]
+  projet        Projet[]
+  activite      Activite[]
+  accueil       Accueil[]
+  detail_projet DetailProjet[]
+  parcours      Parcours[]
+  competence    Competences[]
+}
 
-   svg Image @relation(fields: [svg_id], references: [image_id])
+model Parcours {
+  parcours_id Int          @id @default(autoincrement())
+  nom         String
+  titre       String
+  date_debut  DateTime
+  date_fin    DateTime
+  description String
+  type        TypeParcours
+  svg_id      Int
 
-   @@index([svg_id])
- }
+  svg Image @relation(fields: [svg_id], references: [image_id])
 
- model Activite {
-   activite_id  Int   @id @default(autoincrement())
-   titre        String  
-   description  String  
-   image_id Int
+  @@index([svg_id])
+}
 
-   activite_in_accueil ActiviteInAccueil[]
-   image Image @relation(fields: [image_id], references: [image_id])
-   
-   @@index([image_id])
- }
+model Activite {
+  activite_id Int    @id @default(autoincrement())
+  titre       String
+  description String
+  image_id    Int
 
- model ActiviteInAccueil {
-  activite_id Int 
-  accueil_id   Int
+  activite_in_accueil ActiviteInAccueil[]
+  image               Image               @relation(fields: [image_id], references: [image_id])
+
+  @@index([image_id])
+}
+
+model ActiviteInAccueil {
+  activite_id Int
+  accueil_id  Int
 
   activite Activite @relation(fields: [activite_id], references: [activite_id])
-  accueil Accueil @relation(fields: [accueil_id], references: [accueil_id])
+  accueil  Accueil  @relation(fields: [accueil_id], references: [accueil_id])
 
   @@id([accueil_id, activite_id])
-   @@index([activite_id])
+  @@index([activite_id])
 }
 
- model Accueil {
-   accueil_id   Int   @id @default(autoincrement())
-   description  String  
-   image_id     Int 
+model Accueil {
+  accueil_id  Int    @id @default(autoincrement())
+  description String
+  image_id    Int
 
-   activite_in_accueil ActiviteInAccueil[]
-   image Image @relation(fields: [image_id], references: [image_id])
+  activite_in_accueil ActiviteInAccueil[]
+  image               Image               @relation(fields: [image_id], references: [image_id])
 
-   @@index([image_id])
- }
+  @@index([image_id])
+}
 
- model DetailProjet {
-   detail_projet_id Int   @id @default(autoincrement())
-   titre            String 
-   description      String
-   image_id         Int
+model DetailProjet {
+  detail_projet_id Int    @id @default(autoincrement())
+  titre            String
+  description      String
+  image_id         Int
 
-   image Image @relation(fields: [image_id], references: [image_id])
-   detail_in_projet DetailInProjet[]
+  image            Image            @relation(fields: [image_id], references: [image_id])
+  detail_in_projet DetailInProjet[]
 
-   @@index([image_id])
- }
+  @@index([image_id])
+}
 
- model DetailInProjet {
-   detail_projet_id Int
-   projet_id        Int
+model DetailInProjet {
+  detail_projet_id Int
+  projet_id        Int
 
-   detail_projet DetailProjet @relation(fields: [detail_projet_id], references: [detail_projet_id])
-   projet        Projet       @relation(fields: [projet_id], references: [projet_id])
+  detail_projet DetailProjet @relation(fields: [detail_projet_id], references: [detail_projet_id])
+  projet        Projet       @relation(fields: [projet_id], references: [projet_id])
 
-   @@id([detail_projet_id, projet_id])
-   @@index([projet_id])
- }
+  @@id([detail_projet_id, projet_id])
+  @@index([projet_id])
+}
 
- enum TypeParcours {
-   scolaire
-   professionnel
- }
+model Competences {
+  competence_id Int       @id @default(autoincrement())
+  titre         String
+  image_id      Int
+  categorie     Categorie @default(web)
+
+  image Image @relation(fields: [image_id], references: [image_id])
+}
+
+enum TypeParcours {
+  scolaire
+  professionnel
+}
+
+enum Categorie {
+  web
+  appli
+  db
+}

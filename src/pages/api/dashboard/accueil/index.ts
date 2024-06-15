@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../../../../prisma/prisma";
 import { Activite } from "../../../../../types/activite/Activite";
-import { Accueil } from "../../../../../types/accueil/Accueil";
+import { AccueilType } from "../../../../../types/accueil/Accueil";
 import suppressionImages from "../commun/suppressionImages";
 
 export default async function handler(
@@ -54,7 +54,7 @@ export default async function handler(
         activite.push(acti);
       });
 
-      const accueilReturn: Accueil = {
+      const accueilReturn: AccueilType = {
         accueil_id: accueil.accueil_id,
         description: accueil.description,
         imageLien: `${process.env.PUBLIC_DOMAINE_BUCKET_URL}${accueil.image.nom}`,
