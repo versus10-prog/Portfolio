@@ -28,6 +28,9 @@ export default async function handler(
       where: {
         type: "scolaire",
       },
+      orderBy: {
+        date_debut: 'asc',
+      },
     });
     const professionnel = await prisma.parcours.findMany({
       select: {
@@ -46,6 +49,9 @@ export default async function handler(
       },
       where: {
         type: "professionnel",
+      },
+      orderBy: {
+        date_debut: 'asc',
       },
     });
 
