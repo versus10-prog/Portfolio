@@ -96,6 +96,7 @@
 
 .detailCompetence{
     display: flex;
+    align-items: flex-start;
     flex-direction: row;
 
 }
@@ -159,6 +160,8 @@
     background-color: var(--color2);
     padding: 10px;
     border-radius: 20px;
+    min-width: 140px;
+    min-height: 160px;
 }
 
 .nomCompetence{

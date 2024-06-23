@@ -16,7 +16,7 @@ const Footer = () => {
                     <Link target='_blank' href={"mailto:valentin.sonney@gmail.com"}>Email</Link>
                 </li>
             </ul>
-            <p>&copy; 2024 Valentin Sonne
+            <p>&copy; 2024 Valentin Sonney
             {/* <Link href={"/api/auth/signin"}>y</Link> */}
             </p>
         </div>

@@ -79,7 +79,7 @@ export default function Parcours() {
             inverse={index % 2 === 1}
             debut={index === 0}
             type={false}
-            fin={index === parcoursScolaire.length - 1}
+            fin={index === parcoursPro.length - 1}
           />
         ))}
 
