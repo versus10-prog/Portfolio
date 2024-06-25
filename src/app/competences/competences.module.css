@@ -1,0 +1,49 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ligne{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 50px;
+    background-color: var(--color2-60);
+    height: 400px;
+    width: 250px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+p{
+    color:var(--color1);
+}
+.projet{
+    display: flex;
+    flex-direction: row;
+}
+
+.projet p{
+    font-size: 40px;
+}
+
+.nom{
+    padding-left: 5px;
+    color: var(--color4);
+}
+
+.titre{
+    font-size: 60px;
+}
+
+.description{
+    font-size: 20px;
+}
