@@ -63,7 +63,7 @@ export default function Parcours() {
       </div>
 
       <div className={styles.professionnel}>
-        <p className={styles.titre}>Mon Experience</p>
+        <p className={styles.titre}>Mon Expérience</p>
         <div className={styles.tirets}>
           <div className={styles.tiretPro}></div>
           <div className={styles.tiretPro}></div>

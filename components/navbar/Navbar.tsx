@@ -19,6 +19,9 @@ const Navbar = () => {
       <Link href={"/projets"} className={styles.titre}>
         <p>Mes Projets</p>
       </Link>
+      <Link href={"/competences"} className={styles.titre}>
+        <p>Compétences</p>
+      </Link>
       <div className={styles.switch}>
         <img src="/assets/images/logo-violet-magenta-64x64.png" alt="valentin logo" />
       </div>
